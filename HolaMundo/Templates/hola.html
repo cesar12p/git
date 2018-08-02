@@ -1,0 +1,157 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css1/index.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.map' %}"></script>
+
+	 <style>
+    body { background-color: black; }
+  </style>
+</head>
+<body>
+	<div class="contenedor">
+		<div class="titulo">
+			<img src="{% static 'img/1.jpg' %}" id="ima6"  width="1000" height="450" />	
+		</div>
+		<div class="Introduccion">
+			<h1 id="T1">Introduccion</h1>
+				<div class= inf>
+					A continuación, en este trabajo plasmado en esta página web desarrollado en el Framework Django mostraremos el tema de "Lenguaje Ensamblador" donde implica saber algo de teoría informática porque este lenguaje está relacionado con la arquitectura de los procesadores y los tamaños de bits también. Además de explicar algo de teoría del funcionamiento de este lenguaje mostraremos algunos elementos importantes para poder programar en Ensamblador como por ejemplo conocer los registros, banderas y los operadores aritméticos y con eso podríamos pasar a programar nuestro primer hola mundo.
+					<h2 id="T1">Indice</h2>
+					<ul>
+						<li><a href="#T1T"  id="#i1">Lenguaje Ensamblador</a></li>
+						<li ><a href="#T2" id="#i2">Características</a></li>
+						<li ><a href="#T3" id="#i3">Lenguaje</a></li>
+						<li ><a href="#T4" id="#i4">Código Máquina</a></li>
+						<li ><a href="#T5" id="#i5">Registros</a></li>
+						<li ><a href="#T6" id="#i5">Indicadores (flags)</a></li>
+						<li ><a href="#T7" id="#i5">Operadores</a></li>
+						<li ><a href="#T8" id="#i5">Ejemplo de un Programa en Ensamblador</a></li>
+					</ul>
+				</div>
+		</div>
+		<div class="T1">
+			<h1 id="T1T">¿Que es el Lenguaje Ensamblador?</h1>
+			<div class= inf id=TTT1>
+				El lenguaje ensamblador es el lenguaje de programación utilizado para escribir programas informáticos de bajo nivel, y constituye la representación más directa del Código máquina específico para cada arquitectura de computadoras legible por un programador.
+			</div>
+			<img style="float:left;margin:10px" src="{% static 'img/10.gif' %}"/>
+				<div class= inf>
+					 Aun hoy se utiliza en la programación de handler o manipuladores de dispositivos de hardware.
+					 <br>
+					 <br>
+					 <br>
+					
+				</div>
+				
+		</div>
+		<div class=TT2">
+			<h1 id="T2">Características</h1>
+			<img style="float:right;margin:10px" src="{% static 'img/12.jpg' %}" width="450" height="699"/>
+				
+				<div class= inf>
+					<ul>
+						<li>El código escrito en lenguaje ensamblador posee una cierta dificultad de ser entendido directamente por un ser humano ya que su estructura se acerca más bien al lenguaje máquina, es decir, lenguaje de bajo nivel.</li>
+						<li >El lenguaje ensamblador es difícilmente portable, es decir, un código escrito para un Microprocesador, suele necesitar ser modificado, muchas veces en su totalidad para poder ser usado en otra máquina distinta, aun con el mismo Microprocesador, solo pueden ser reutilizados secciones especiales del código programado.</li>
+						<li >Los programas hechos en lenguaje ensamblador, al ser programado directamente sobre Hardware, son generalmente más rápidos y consumen menos recursos del sistema (memoria RAM y ROM)</li>
+					</ul>
+
+				</div>
+		</div>
+		<div class="TT3">
+			<h1 id="T3">Lenguaje</h1>
+			<div class= inf>
+				Un programa escrito en lenguaje ensamblador consiste en una serie de Instrucciones que corresponden al flujo de órdenes ejecutables que pueden ser cargadas en la Memoria de un sistema basado en Microprocesador.<br>
+			</div>
+			<img src="{% static 'img/9.jpg' %}" width="1000" height="200"/>
+				<div class= inf>
+					Por ejemplo, un Procesador x86 puede ejecutar la siguiente instrucción Binaria como se expresa en código de máquina<br> 
+					Binario:<span class="n"> 10110000 01100001</span> (Hexadecimal: <span class="n">0xb061</span>)<br> 
+					La representación equivalente en lenguaje ensamblador es más fácil de recordar:<br> 
+					MOV al, <span class="n">061h</span><br> 
+					Esta instrucción significa:<br> 
+					Asigna el valor Hexadecimal <span class="n">61</span> (<span class="n"> 97</span> Decimal) al registro "al"
+				</div>
+		</div>
+		<div class="TT4">
+			<h1 id="T4">Código máquina</h1>
+				<div class= inf>
+					<img style="float:right;margin:10px" src="{% static 'img/8.jpg' %}" width="390" height="290"/>
+					El código máquina, o lenguaje de máquina, está formado por instrucciones sencillas, que -dependiendo de la estructura del procesador- pueden especificar:
+					<ul>
+						<li>Registros específicos para operaciones aritméticas, direccionamiento o control de funciones.</li>
+						<li>Posiciones de memoria específicas (offset)</li>
+						<li>Modos de direccionamiento usados para interpretar operando</li>
+					</ul>
+				</div>
+		</div>
+		<div class="TT4">
+			<h1 id="T5">Registros de uso general del 8086/8088:</h1>
+				<div class= inf>
+					<img style="float:right;margin:10px" src="{% static 'img/6.gif' %}" width="390" height="790"/>
+					<span class="n">AX</span> = Registro acumulador, dividido en AH y AL (8 bits cada uno). Usándolo se produce (en general)<br>
+					<span class="n">BX</span> = Registro base, dividido en BH y BL. Es el registro base de propósito similar (se usa para direccionamiento indirecto).<br>
+					<span class="n">CX</span> = Registro contador, dividido en CH y CL. Se utiliza como contador en bucles (instrucción LOOP).<br>
+					<span class="n">DX</span> = Registro de datos, dividido en DH y DL. Se utiliza junto con el registro AX en multiplicaciones y divisiones.<br>
+					<span class="n">SP</span> = Puntero de pila (no se puede subdividir). Aunque es un registro de uso general, debe utilizarse sólo como puntero de pila.<br>
+					<span class="n">BP</span> = Puntero base (no se puede subdividir). Generalmente se utiliza para realizar direccionamiento indirecto dentro de la pila.<br>
+					<span class="n">SI</span> = Puntero índice (no se puede subdividir). Sirve como puntero fuente para las operaciones con cadenas.<br>
+					<span class="n">DI</span> = Puntero destino (no se puede subdividir). Sirve como puntero destino para las operaciones con cadenas.<br>
+
+				</div>
+		</div>
+		<div class="TT4">
+			<h1 id="T6">Indicadores (flags)</h1>
+			<div class= inf>
+				<img style="float:left;margin:10px" src="{% static 'img/11.jpg' %}" width="230" height="230">
+				Hay nueve indicadores de un bit en este registro de 16 bits. Los cuatro bits más significativos están indefinidos, mientras que hay tres bits con valores determinados: los bits 5 y 3 siempre valen cero y el bit 1 siempre vale uno (esto también ocurría en los procesadores anteriores).
+				<br>
+				<br>
+				<br>
+			</div>
+				<div class= inf>
+					
+					<span class="n">CF</span> = (Carry Flag, bit 0): Si vale 1, indica que hubo “arrastre” (en caso de suma) hacia, o “préstamo” (en caso de resta) desde el bit de orden más significativo del resultado. Este indicador es usado por instrucciones que suman o restan números que ocupan varios bytes.<br>
+					<span class="n">PF</span> = (Parity Flag, bit 2): Si vale uno, el resultado tiene paridad par, es decir, un número par de bits a 1. Este indicador se puede utilizar para detectar errores en transmisiones.<br>
+					<span class="n">AF</span> = (Auxiliary carry Flag, bit 4): Si vale 1, indica que hubo “arrastre” o “préstamo” del nibble (cuatro bits) menos significativo al nibble más significativo. Este indicador se usa con las instrucciones de ajuste decimal.<br>
+					<span class="n">ZF</span> = (Zero Flag, bit 6): Si este indicador vale 1, el resultado de la operación es cero.<br>
+					<span class="n">SF</span> = (Sign Flag, bit 7): Refleja el bit más significativo del resultado. Como los números negativos se representan en la notación de complemento a dos, este bit representa el signo: 0 si es positivo, 1 si es negativo.<br>
+					<span class="n">TF</span> = (Trap Flag, bit 8): Si vale 1, el procesador está en modo paso a paso. En este modo, la CPU automáticamente genera una interrupción interna después de cada instrucción, permitiendo inspeccionar los resultados del programa a medida que se ejecuta instrucción por instrucción.<br>
+					<span class="n">IF</span> = (Interrupt Flag, bit 9): Si vale 1, la CPU reconoce pedidos de interrupción externas enmascarables (por el pin INTR). Si vale 0, no se reconocen tales interrupciones. Las interrupciones no enmascarables y las internas siempre se reconocen independientemente del valor de IF.<br>
+					<span class="n">OF</span> = (Overflow flag, bit 11): Si vale 1, hubo un desborde en una operación aritmética con signo, esto es, un dígito significativo se perdió debido a que tamaño del resultado es mayor que el tamaño del destino.<br>
+
+				</div>
+		</div>
+		<div class="TT4">
+			<h1 id="T7">Operadores</h1>
+			<br>
+			<div class= inf>
+				<img src="{% static 'img/7.gif' %}" width="1030"/>
+			</div>
+				
+		</div>
+		<div class="TT4">
+			<h1 id="T8">Ejemplo de un Programa en Ensamblador</h1>
+			<div class= inf>
+				El siguiente es un ejemplo del programa clásico Hola mundo escrito para la arquitectura de procesador x86 (bajo el sistema operativo DOS) en modo texto (por defecto).<br>
+			</div>
+				<div class= inf>
+					<ol>
+						<li>Tecleamos el codigo en un editor de Textos y lo guarmos con las extencion ".asm"</li>
+						<img  src="{% static 'img/2.jpg' %}"/>
+						<li>Cargamos el Programa iniciando con "TASM"</li>
+						<img  src="{% static 'img/3.jpg' %}"/>
+						<li>Linkeamos el programa iniciando con "TLINK"</li>
+						<img  src="{% static 'img/4.jpg' %}"/>
+						<li>Ejercuetamos el programa y nos imprime el resultado</li>
+						<img  src="{% static 'img/5.jpg' %}"/>
+					</ol>
+				</div>
+		</div>
+	</div>
+</body>
+</html>
